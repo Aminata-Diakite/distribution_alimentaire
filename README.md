@@ -27,7 +27,7 @@ Le projet est une **application web installable (PWA)** qui permet de :
 .
 ├── README.md
 └── cadrage/
-    └── cahier_de_charges.docx
+    └── cahier_de_charges-DIAKITE-AMINATA.docx
 ```
 
 - `cadrage/` : le cahier des charges du projet.
