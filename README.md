@@ -29,6 +29,9 @@ Le projet est une **application web installable (PWA)** qui permet de :
 └── cadrage/
     └── cahier_de_charges-DIAKITE-AMINATA.docx
 ```
+## Liens utiles
+
+[Voir les maquettes interactives](https://htmlpreview.github.io/?https://github.com/Aminata-Diakite/distribution_alimentaire/blob/main/modelisateur/maquettes_CIVADIS.html)
 
 - `cadrage/` : le cahier des charges du projet.
 
