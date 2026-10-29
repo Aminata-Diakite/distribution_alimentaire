@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CIVADIS – Plateforme incidents – Maquettes</title>
+<style>
+  :root {
+    --bleu: #262152;
+    --or: #B8860B;
+    --texte: #1F1D3A;
+    --gris: #6B6B7B;
+    --bord: #E3E3EA;
+    --fond: #F6F6F9;
+    --blanc: #FFFFFF;
+    --rouge: #B42318;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: var(--texte); background: var(--fond); font-size: 14px; }
+  button { font: inherit; cursor: pointer; }
+  input, select, textarea { font: inherit; }
+
+  /* ----- sélecteur de démonstration ----- */
+  .demo-bar { background: #111; color: #fff; display: flex; align-items: center; gap: 12px; padding: 8px 16px; font-size: 13px; }
+  .demo-bar label { opacity: .8; }
+  .demo-bar select { padding: 4px 8px; border-radius: 4px; border: 0; }
+  .demo-bar .titre-ecran { margin-left: auto; opacity: .7; }
+
+  /* ----- écran de connexion ----- */
+  .login { min-height: calc(100vh - 40px); display: flex; align-items: center; justify-content: center; background: var(--blanc); }
+  .login-box { width: 360px; }
+  .login-box h1 { font-size: 26px; margin: 0 0 6px; color: var(--bleu); }
+  .login-box p.sous { color: var(--gris); margin: 0 0 28px; }
+  .champ { margin-bottom: 16px; }
+  .champ label { display: block; font-weight: bold; margin-bottom: 6px; }
+  .champ input { width: 100%; padding: 11px 12px; border: 1px solid var(--bord); border-radius: 6px; }
+  .champ .erreur { color: var(--rouge); font-size: 13px; margin-top: 6px; display: none; }
+  .champ.invalide .erreur { display: block; }
+  .champ.invalide input { border-color: var(--rouge); }
+  .ligne-options { display: flex; justify-content: space-between; align-items: center; font-size: 13px; margin-bottom: 22px; }
+  .ligne-options a { color: var(--or); text-decoration: none; }
+  .btn { background: var(--bleu); color: #fff; border: 0; border-radius: 6px; padding: 12px 16px; width: 100%; font-weight: bold; }
+  .btn.secondaire { background: var(--blanc); color: var(--bleu); border: 1px solid var(--bleu); width: auto; padding: 9px 14px; font-weight: normal; }
+  .btn.petit { padding: 8px 12px; width: auto; font-weight: normal; }
+  .btn.danger { background: var(--blanc); color: var(--rouge); border: 1px solid var(--rouge); width: auto; padding: 9px 14px; font-weight: normal; }
+  .aide { color: var(--gris); font-size: 12px; text-align: center; margin-top: 18px; }
+
+  /* ----- application ----- */
+  .app { display: none; min-height: calc(100vh - 40px); }
+  .app.actif { display: flex; }
+  .menu { width: 220px; background: var(--bleu); color: #fff; padding: 22px 0; flex-shrink: 0; }
+  .menu .logo { padding: 0 20px 22px; font-weight: bold; letter-spacing: .5px; }
+  .menu .logo span { display: block; font-size: 11px; font-weight: normal; opacity: .7; margin-top: 3px; }
+  .menu a { display: block; padding: 11px 20px; color: #E8E7F2; text-decoration: none; cursor: pointer; border-left: 3px solid transparent; }
+  .menu a.actif { background: rgba(255,255,255,.08); border-left-color: var(--or); color: #fff; }
+  .menu .pied { position: absolute; bottom: 0; }
+  .principal { flex: 1; padding: 28px 36px; min-width: 0; }
+  .entete { display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; }
+  .entete h2 { margin: 0; font-size: 22px; color: var(--bleu); }
+  .utilisateur { color: var(--gris); font-size: 13px; text-align: right; }
+
+  .carte { background: var(--blanc); border: 1px solid var(--bord); border-radius: 8px; padding: 18px; margin-bottom: 18px; }
+  .carte h3 { margin: 0 0 14px; font-size: 15px; color: var(--bleu); }
+  .grille { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+  .indicateur { border: 1px solid var(--bord); border-radius: 8px; padding: 14px; background: var(--blanc); }
+  .indicateur .nombre { font-size: 26px; font-weight: bold; color: var(--bleu); }
+  .indicateur .libelle { color: var(--gris); font-size: 13px; margin-top: 4px; }
+
+  table { width: 100%; border-collapse: collapse; background: var(--blanc); }
+  th, td { text-align: left; padding: 11px 10px; border-bottom: 1px solid var(--bord); vertical-align: middle; }
+  th { color: var(--gris); font-weight: normal; font-size: 12px; text-transform: uppercase; letter-spacing: .3px; }
+  td .num { color: var(--gris); font-size: 12px; }
+  tr.cliquable { cursor: pointer; }
+  tr.cliquable:hover { background: #FAFAFC; }
+
+  .badge { display: inline-block; font-size: 12px; padding: 3px 9px; border-radius: 12px; border: 1px solid; white-space: nowrap; }
+  .b-nouveau { color: #7A5C00; border-color: #E8C547; background: #FFF8DB; }
+  .b-encours { color: #1D4E89; border-color: #8FB3E0; background: #EAF2FB; }
+  .b-qualifie { color: #5B3A9E; border-color: #B9A4E0; background: #F3EFFB; }
+  .b-resolu { color: #1E6B3A; border-color: #9FD3B2; background: #EAF7EF; }
+  .b-cloture { color: #4A4A55; border-color: #C9C9D1; background: #F2F2F5; }
+  .b-annule { color: var(--rouge); border-color: #F0A9A3; background: #FDECEA; }
+
+  .filtres { display: flex; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
+  .filtres input, .filtres select { padding: 9px 10px; border: 1px solid var(--bord); border-radius: 6px; background: var(--blanc); }
+  .filtres input { min-width: 260px; }
+
+  .champ-form { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 18px; }
+  .champ-form .plein { grid-column: 1 / -1; }
+  .champ-form label { display: block; font-weight: bold; margin-bottom: 6px; font-size: 13px; }
+  .champ-form label .etoile { color: var(--rouge); }
+  .champ-form input, .champ-form select, .champ-form textarea { width: 100%; padding: 10px; border: 1px solid var(--bord); border-radius: 6px; background: var(--blanc); }
+  .champ-form textarea { min-height: 90px; resize: vertical; }
+  .zone-photos { border: 1px dashed #B9B9C6; border-radius: 8px; padding: 22px; text-align: center; color: var(--gris); background: #FCFCFD; }
+  .zone-photos a { color: var(--or); }
+  .actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 18px; flex-wrap: wrap; }
+
+  .fiche-grille { display: grid; grid-template-columns: 2fr 1fr; gap: 18px; }
+  .info dl { display: grid; grid-template-columns: 170px 1fr; gap: 9px 14px; margin: 0; }
+  .info dt { color: var(--gris); }
+  .info dd { margin: 0; }
+  .historique li { margin-bottom: 10px; list-style: none; padding-left: 12px; border-left: 2px solid var(--bord); }
+  .historique ul { padding: 0; margin: 0; }
+  .historique .date { color: var(--gris); font-size: 12px; }
+  .lecture-seule { color: var(--gris); font-size: 12px; margin-bottom: 10px; }
+
+  .section-intervenant { border-left: 3px solid var(--or); }
+  .etiquette { font-size: 11px; color: var(--or); text-transform: uppercase; letter-spacing: .4px; margin-bottom: 8px; }
+  .vide { color: var(--gris); padding: 18px 0; }
+  .acces-refuse { color: var(--rouge); padding: 40px 0; text-align: center; }
+
+  .dialogue { position: fixed; inset: 0; background: rgba(20,18,40,.45); display: none; align-items: center; justify-content: center; z-index: 10; }
+  .dialogue.ouvert { display: flex; }
+  .dialogue .boite { background: var(--blanc); border-radius: 8px; width: 420px; padding: 22px; }
+  .dialogue h3 { margin: 0 0 10px; color: var(--bleu); }
+  .dialogue p { color: var(--gris); }
+  .dialogue textarea { width: 100%; min-height: 80px; padding: 8px; border: 1px solid var(--bord); border-radius: 6px; }
+  .dialogue .actions { margin-top: 14px; }
+
+  .toast { position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); background: var(--bleu); color: #fff; padding: 10px 16px; border-radius: 6px; display: none; z-index: 20; }
+  .toast.ouvert { display: block; }
+</style>
+</head>
+<body>
+
+<div class="demo-bar">
+  <label for="role">Voir comme :</label>
+  <select id="role">
+    <option value="connexion">Écran de connexion</option>
+    <option value="salarie">Salarié</option>
+    <option value="responsable">Responsable de service</option>
+    <option value="admin">Administrateur</option>
+    <option value="direction">Direction</option>
+  </select>
+  <span class="titre-ecran" id="titre-ecran">Maquette CIVADIS – version 1</span>
+</div>
+
+<!-- ========== CONNEXION ========== -->
+<section id="ecran-connexion" class="login">
+  <div class="login-box">
+    <h1>Connexion</h1>
+    <p class="sous">Accédez à la plateforme de gestion des incidents.</p>
+    <form id="form-connexion" onsubmit="return false;">
+      <div class="champ" id="champ-identifiant">
+        <label for="identifiant">Identifiant (e-mail)</label>
+        <input id="identifiant" type="text" placeholder="prenom.nom@civadis.ci">
+      </div>
+      <div class="champ" id="champ-mdp">
+        <label for="mdp">Mot de passe</label>
+        <input id="mdp" type="password" placeholder="Votre mot de passe">
+        <div class="erreur">Mot de passe incorrect</div>
+      </div>
+      <div class="ligne-options">
+        <label><input type="checkbox"> Se souvenir de moi</label>
+        <a href="#" onclick="return false;">Mot de passe oublié ?</a>
+      </div>
+      <button class="btn" id="bouton-connexion" type="button">Se connecter</button>
+    </form>
+    <p class="aide">Maquette : cliquez une fois pour afficher l'erreur, une seconde fois pour entrer.</p>
+  </div>
+</section>
+
+<!-- ========== SALARIÉ ========== -->
+<section id="ecran-salarie" class="app">
+  <aside class="menu">
+    <div class="logo">CIVADIS<span>Plateforme incidents</span></div>
+    <a class="actif" data-page="sal-declarer">Déclarer</a>
+    <a data-page="sal-mes">Mes déclarations</a>
+    <a data-page="sal-todo" class="section-intervenant-lien">Mes incidents à traiter</a>
+  </aside>
+  <main class="principal">
+    <div class="entete">
+      <h2 id="titre-salarie">Déclarer une anomalie ou un incident</h2>
+      <div class="utilisateur">Aminata Diakité – Salarié</div>
+    </div>
+
+    <!-- Déclarer -->
+    <div id="sal-declarer" class="page">
+      <div class="carte">
+        <div class="champ-form">
+          <div class="plein"><label>Titre <span class="etoile">*</span></label><input placeholder="Ex. Fuite d'eau dans le local technique"></div>
+          <div class="plein"><label>Description <span class="etoile">*</span></label><textarea placeholder="Décrivez ce que vous avez constaté"></textarea></div>
+          <div><label>Catégorie <span class="etoile">*</span></label><select><option>Sélectionner</option><option>Infrastructure / Bâtiment</option><option>Équipement / Maintenance</option><option>Informatique / Réseau</option><option>Marchandises / Qualité</option><option>Entrepôt / Stockage</option><option>Préparation / Livraison</option><option>Sécurité</option><option>Autre</option></select></div>
+          <div><label>Activité <span class="etoile">*</span></label><select><option>Sélectionner</option><option>Avitaillement</option><option>Distribution CHR</option><option>GMS – Supermarchés & E-Com</option></select></div>
+          <div><label>Site <span class="etoile">*</span></label><select><option>Site A</option><option>Site B</option><option>Site C</option></select></div>
+          <div><label>Service d'origine <span class="etoile">*</span></label><select><option>Entrepôt</option><option>Maintenance</option><option>Informatique</option><option>Sécurité</option><option>Qualité des marchandises</option><option>Services généraux</option></select></div>
+          <div><label>Date du constat <span class="etoile">*</span></label><input type="date"></div>
+          <div><label>Heure du constat <span class="etoile">*</span></label><input type="time"></div>
+          <div><label>Emplacement précis</label><input placeholder="Ex. Bâtiment B, local 03"></div>
+          <div><label>Gravité estimée</label><select><option>Faible</option><option selected>Normale</option><option>Haute</option><option>Critique</option></select></div>
+          <div class="plein">
+            <label>Photos</label>
+            <div class="zone-photos">Déposez vos photos ici ou <a href="#" onclick="return false;">prenez une photo</a> · 5 maximum · 5 Mo par fichier</div>
+          </div>
+        </div>
+        <div class="actions">
+          <button class="btn secondaire" type="button" onclick="montrer('Brouillon enregistré sur le téléphone')">Enregistrer en brouillon</button>
+          <button class="btn petit" type="button" onclick="confirmerDeclaration()">Enregistrer la déclaration</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mes déclarations -->
+    <div id="sal-mes" class="page" style="display:none">
+      <div class="filtres"><input placeholder="Rechercher une déclaration…"><select><option>Tous les statuts</option><option>Nouveau</option><option>En cours</option><option>Résolu</option><option>Clôturé</option></select></div>
+      <table>
+        <tr><th>Numéro</th><th>Titre</th><th>Statut</th><th>Service</th><th>Date</th></tr>
+        <tr class="cliquable" onclick="ouvrirFiche('fiche-salarie')"><td><span class="num">INC-2026-0842</span></td><td>Fuite d'eau dans le local technique</td><td><span class="badge b-nouveau">Nouveau</span></td><td>Maintenance</td><td>Il y a 18 min</td></tr>
+        <tr class="cliquable" onclick="ouvrirFiche('fiche-salarie')"><td><span class="num">INC-2026-0824</span></td><td>Porte coupe-feu bloquée</td><td><span class="badge b-qualifie">Qualifié / Affecté</span></td><td>Entrepôt</td><td>Hier, 16:42</td></tr>
+        <tr class="cliquable" onclick="ouvrirFiche('fiche-salarie')"><td><span class="num">INC-2026-0818</span></td><td>Éclairage défectueux, zone de stockage</td><td><span class="badge b-resolu">Résolu</span></td><td>Entrepôt</td><td>12 juin</td></tr>
+      </table>
+    </div>
+
+    <!-- Mes incidents à traiter (fonction intervenant) -->
+    <div id="sal-todo" class="page" style="display:none">
+      <div class="carte section-intervenant">
+        <div class="etiquette">Fonction intervenant</div>
+        <table>
+          <tr><th>Numéro</th><th>Titre</th><th>Statut</th><th>Priorité</th><th>Date</th></tr>
+          <tr class="cliquable" onclick="ouvrirFiche('fiche-salarie')"><td><span class="num">INC-2026-0839</span></td><td>Éclairage défectueux, zone de stockage</td><td><span class="badge b-encours">En cours</span></td><td>Moyenne</td><td>Il y a 2 h</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Fiche (salarié : lecture seule) -->
+    <div id="fiche-salarie" class="page" style="display:none">
+      <div class="fiche-grille">
+        <div>
+          <div class="carte info">
+            <h3>INC-2026-0842 – Fuite d'eau dans le local technique</h3>
+            <dl>
+              <dt>Catégorie</dt><dd>Infrastructure / Bâtiment</dd>
+              <dt>Activité</dt><dd>Avitaillement</dd>
+              <dt>Gravité</dt><dd>Normale (proposée)</dd>
+              <dt>Service d'origine</dt><dd>Maintenance</dd>
+              <dt>Service de traitement</dt><dd>En attente de qualification</dd>
+              <dt>Date du constat</dt><dd>16/06/2026 à 09:30</dd>
+              <dt>Emplacement</dt><dd>Bâtiment B, local technique 03</dd>
+              <dt>Statut</dt><dd><span class="badge b-nouveau">Nouveau</span></dd>
+            </dl>
+          </div>
+          <div class="carte"><h3>Description</h3><p>Une fuite d'eau importante a été constatée au niveau d'une canalisation dans le local technique. Le sol est humide sur environ 4 m².</p></div>
+          <div class="carte"><h3>Commentaires</h3><textarea placeholder="Ajouter un commentaire"></textarea><div class="actions"><button class="btn petit" type="button" onclick="montrer('Commentaire ajouté à l\'historique')">Envoyer</button></div></div>
+        </div>
+        <div>
+          <div class="carte historique">
+            <h3>Historique</h3>
+            <p class="lecture-seule">Lecture seule : aucune modification possible.</p>
+            <ul>
+              <li><div>Création de la déclaration</div><div class="date">Aminata Diakité – 16/06/2026 09:42</div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</section>
+
+<!-- ========== RESPONSABLE DE SERVICE ========== -->
+<section id="ecran-responsable" class="app">
+  <aside class="menu">
+    <div class="logo">CIVADIS<span>Plateforme incidents</span></div>
+    <a class="actif" data-page="resp-afaire">À faire</a>
+    <a data-page="resp-tous">Tous les incidents du service</a>
+    <a data-page="resp-declarer">Déclarer</a>
+    <a data-page="resp-dashboard">Tableau de bord</a>
+  </aside>
+  <main class="principal">
+    <div class="entete">
+      <h2 id="titre-resp">À faire</h2>
+      <div class="utilisateur">Marie Lefèvre – Responsable de service, Maintenance</div>
+    </div>
+
+    <!-- À faire -->
+    <div id="resp-afaire" class="page">
+      <div class="grille">
+        <div class="indicateur"><div class="nombre">5</div><div class="libelle">À qualifier</div></div>
+        <div class="indicateur"><div class="nombre">2</div><div class="libelle">Résolutions à valider</div></div>
+        <div class="indicateur"><div class="nombre">3</div><div class="libelle">En cours dans le service</div></div>
+      </div>
+      <br>
+      <div class="carte section-intervenant">
+        <div class="etiquette">Mes incidents à traiter (fonction intervenant)</div>
+        <table>
+          <tr><th>Numéro</th><th>Titre</th><th>Statut</th><th>Priorité</th><th>Date</th></tr>
+          <tr class="cliquable" onclick="ouvrirFiche('fiche-resp')"><td><span class="num">INC-2026-0831</span></td><td>Groupe froid en panne, zone 2</td><td><span class="badge b-encours">En cours</span></td><td>Haute</td><td>Hier</td></tr>
+        </table>
+      </div>
+      <div class="carte">
+        <div class="etiquette">Incidents à qualifier ou à valider</div>
+        <table>
+          <tr><th>Numéro</th><th>Titre</th><th>Statut</th><th>Action attendue</th><th>Date</th></tr>
+          <tr class="cliquable" onclick="ouvrirFiche('fiche-resp')"><td><span class="num">INC-2026-0842</span></td><td>Fuite d'eau dans le local technique</td><td><span class="badge b-nouveau">Nouveau</span></td><td>Qualifier et affecter</td><td>Il y a 18 min</td></tr>
+          <tr class="cliquable" onclick="ouvrirFiche('fiche-resp')"><td><span class="num">INC-2026-0827</span></td><td>Porte de quai bloquée</td><td><span class="badge b-resolu">Résolu</span></td><td>Valider la résolution</td><td>Hier</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Tous les incidents -->
+    <div id="resp-tous" class="page" style="display:none">
+      <div class="filtres">
+        <input placeholder="Rechercher un incident…">
+        <select><option>Tous les statuts</option><option>Nouveau</option><option>Qualifié / Affecté</option><option>En cours</option><option>Résolu</option><option>Clôturé</option><option>Annulé</option></select>
+        <select><option>Toutes les priorités</option><option>Faible</option><option>Normale</option><option>Haute</option><option>Critique</option></select>
+        <select><option>Toutes les activités</option><option>Avitaillement</option><option>Distribution CHR</option><option>GMS</option></select>
+        <select><option>Tous les sites</option><option>Site A</option><option>Site B</option><option>Site C</option></select>
+      </div>
+      <table>
+        <tr><th>Numéro</th><th>Titre</th><th>Statut</th><th>Priorité</th><th>Site</th><th>Date</th></tr>
+        <tr class="cliquable" onclick="ouvrirFiche('fiche-resp')"><td><span class="num">INC-2026-0842</span></td><td>Fuite d'eau dans le local technique</td><td><span class="badge b-nouveau">Nouveau</span></td><td>Haute</td><td>Site A</td><td>Il y a 18 min</td></tr>
+        <tr class="cliquable" onclick="ouvrirFiche('fiche-resp')"><td><span class="num">INC-2026-0839</span></td><td>Éclairage défectueux, zone de stockage</td><td><span class="badge b-encours">En cours</span></td><td>Moyenne</td><td>Site B</td><td>Il y a 2 h</td></tr>
+        <tr class="cliquable" onclick="ouvrirFiche('fiche-resp')"><td><span class="num">INC-2026-0824</span></td><td>Porte coupe-feu bloquée</td><td><span class="badge b-qualifie">Qualifié / Affecté</span></td><td>Haute</td><td>Site A</td><td>Hier</td></tr>
+        <tr class="cliquable" onclick="ouvrirFiche('fiche-resp')"><td><span class="num">INC-2026-0818</span></td><td>Température anormale, salle serveur</td><td><span class="badge b-cloture">Clôturé</span></td><td>Critique</td><td>Site C</td><td>12 juin</td></tr>
+      </table>
+    </div>
+
+    <!-- Déclarer -->
+    <div id="resp-declarer" class="page" style="display:none">
+      <div class="carte"><p class="vide">Même formulaire que le salarié : titre, description, catégorie, activité, site, service d'origine, date et heure, photos.</p>
+        <div class="actions"><button class="btn petit" type="button" onclick="montrer('Déclaration enregistrée')">Enregistrer la déclaration</button></div>
+      </div>
+    </div>
+
+    <!-- Tableau de bord du service -->
+    <div id="resp-dashboard" class="page" style="display:none">
+      <div class="grille">
+        <div class="indicateur"><div class="nombre">12</div><div class="libelle">Incidents du service</div></div>
+        <div class="indicateur"><div class="nombre">3</div><div class="libelle">Priorité haute</div></div>
+        <div class="indicateur"><div class="nombre">2,4 j</div><div class="libelle">Délai moyen de prise en charge</div></div>
+        <div class="indicateur"><div class="nombre">28</div><div class="libelle">Résolus ce mois-ci</div></div>
+      </div>
+      <br>
+      <div class="carte"><h3>Incidents en retard</h3>
+        <table>
+          <tr><th>Numéro</th><th>Titre</th><th>Statut</th><th>Retard</th></tr>
+          <tr><td><span class="num">INC-2026-0801</span></td><td>Chariot élévateur hors service</td><td><span class="badge b-encours">En cours</span></td><td>4 jours</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Fiche responsable -->
+    <div id="fiche-resp" class="page" style="display:none">
+      <div class="fiche-grille">
+        <div>
+          <div class="carte info">
+            <h3>INC-2026-0842 – Fuite d'eau dans le local technique</h3>
+            <dl>
+              <dt>Catégorie</dt><dd>Infrastructure / Bâtiment</dd>
+              <dt>Activité</dt><dd>Avitaillement</dd>
+              <dt>Gravité proposée</dt><dd>Normale</dd>
+              <dt>Priorité officielle</dt><dd>À fixer</dd>
+              <dt>Service d'origine</dt><dd>Maintenance</dd>
+              <dt>Service de traitement</dt><dd>À choisir</dd>
+              <dt>Intervenant</dt><dd>Non affecté</dd>
+              <dt>Statut</dt><dd><span class="badge b-nouveau">Nouveau</span></dd>
+            </dl>
+          </div>
+          <div class="carte"><h3>Description</h3><p>Une fuite d'eau importante a été constatée au niveau d'une canalisation dans le local technique.</p></div>
+          <div class="carte"><h3>Commentaires</h3><textarea placeholder="Ajouter un commentaire"></textarea><div class="actions"><button class="btn petit" type="button" onclick="montrer('Commentaire ajouté à l\'historique')">Envoyer</button></div></div>
+        </div>
+        <div>
+          <div class="carte">
+            <h3>Actions</h3>
+            <div class="actions" style="justify-content:flex-start;flex-direction:column;align-items:stretch">
+              <button class="btn" type="button" onclick="montrer('Gravité et priorité enregistrées. Statut : Qualifié / Affecté')">Qualifier (gravité et priorité)</button>
+              <button class="btn secondaire" type="button" onclick="montrer('Affectation enregistrée dans l\'historique')">Affecter au service ou à un intervenant</button>
+              <button class="btn secondaire" type="button" onclick="montrer('Incident validé et clôturé')">Valider et clôturer</button>
+              <button class="btn secondaire" type="button" onclick="ouvrirDialogue('Rouvrir avec justification', 'Une justification écrite est obligatoire.', 'Rouvrir')">Rouvrir avec justification</button>
+              <button class="btn danger" type="button" onclick="ouvrirDialogue('Annuler l\'incident', 'Un motif est obligatoire. La fiche est conservée.', 'Annuler l\'incident')">Annuler avec motif</button>
+            </div>
+          </div>
+          <div class="carte historique">
+            <h3>Historique</h3>
+            <p class="lecture-seule">Lecture seule : aucune modification possible.</p>
+            <ul>
+              <li><div>Création de la déclaration</div><div class="date">Aminata Diakité – 16/06/2026 09:42</div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</section>
+
+<!-- ========== ADMINISTRATEUR ========== -->
+<section id="ecran-admin" class="app">
+  <aside class="menu">
+    <div class="logo">CIVADIS<span>Administration</span></div>
+    <a class="actif" data-page="adm-comptes">Comptes et droits</a>
+    <a data-page="adm-ref">Référentiels</a>
+  </aside>
+  <main class="principal">
+    <div class="entete">
+      <h2 id="titre-admin">Comptes et droits</h2>
+      <div class="utilisateur">Administrateur système</div>
+    </div>
+
+    <div id="adm-comptes" class="page">
+      <div class="filtres">
+        <input placeholder="Rechercher un utilisateur…">
+        <select><option>Tous les rôles</option><option>Salarié</option><option>Responsable de service</option><option>Administrateur</option><option>Direction</option></select>
+        <button class="btn petit" type="button" onclick="montrer('Formulaire de création de compte')">+ Créer un compte</button>
+      </div>
+      <table>
+        <tr><th>Nom</th><th>E-mail</th><th>Rôle</th><th>Site</th><th>Service</th><th>Statut</th></tr>
+        <tr class="cliquable" onclick="montrer('Modifier le rôle, le site ou le service')"><td>Aminata Diakité</td><td>aminata.diakite@civadis.ci</td><td>Salarié</td><td>Site A</td><td>Maintenance</td><td><span class="badge b-resolu">Actif</span></td></tr>
+        <tr class="cliquable" onclick="montrer('Modifier le rôle, le site ou le service')"><td>Marie Lefèvre</td><td>marie.lefevre@civadis.ci</td><td>Responsable de service</td><td>Site A</td><td>Maintenance</td><td><span class="badge b-resolu">Actif</span></td></tr>
+        <tr class="cliquable" onclick="montrer('Modifier le rôle, le site ou le service')"><td>Julien Moreau</td><td>julien.moreau@civadis.ci</td><td>Salarié</td><td>Site B</td><td>Entrepôt</td><td><span class="badge b-cloture">Désactivé</span></td></tr>
+      </table>
+      <p class="vide">Un compte n'est jamais supprimé : il est désactivé pour conserver l'historique.</p>
+    </div>
+
+    <div id="adm-ref" class="page" style="display:none">
+      <div class="grille">
+        <div class="carte"><h3>Sites</h3><p class="vide">Site A · Site B · Site C</p><button class="btn secondaire petit" type="button" onclick="montrer('Ajouter un site')">Ajouter</button></div>
+        <div class="carte"><h3>Services</h3><p class="vide">Entrepôt · Maintenance · Informatique · Sécurité · Qualité des marchandises · Services généraux</p><button class="btn secondaire petit" type="button" onclick="montrer('Ajouter un service')">Ajouter</button></div>
+        <div class="carte"><h3>Catégories</h3><p class="vide">Infrastructure / Bâtiment · Équipement / Maintenance · Informatique / Réseau · Marchandises / Qualité · Entrepôt / Stockage · Préparation / Livraison · Sécurité · Autre</p><button class="btn secondaire petit" type="button" onclick="montrer('Ajouter une catégorie')">Ajouter</button></div>
+      </div>
+    </div>
+  </main>
+</section>
+
+<!-- ========== DIRECTION ========== -->
+<section id="ecran-direction" class="app">
+  <aside class="menu">
+    <div class="logo">CIVADIS<span>Direction</span></div>
+    <a class="actif" data-page="dir-dashboard">Tableau de bord</a>
+    <a data-page="dir-export">Exporter</a>
+  </aside>
+  <main class="principal">
+    <div class="entete">
+      <h2 id="titre-direction">Tableau de bord global</h2>
+      <div class="utilisateur">Direction – lecture seule</div>
+    </div>
+
+    <div id="dir-dashboard" class="page">
+      <div class="filtres">
+        <select><option>Période : ce mois-ci</option><option>3 derniers mois</option><option>Cette année</option></select>
+        <select><option>Tous les sites</option><option>Site A</option><option>Site B</option><option>Site C</option></select>
+        <select><option>Tous les services</option><option>Entrepôt</option><option>Maintenance</option></select>
+        <select><option>Toutes les activités</option><option>Avitaillement</option><option>Distribution CHR</option><option>GMS</option></select>
+      </div>
+      <div class="grille">
+        <div class="indicateur"><div class="nombre">84</div><div class="libelle">Incidents déclarés</div></div>
+        <div class="indicateur"><div class="nombre">21</div><div class="libelle">En attente de traitement</div></div>
+        <div class="indicateur"><div class="nombre">2,4 j</div><div class="libelle">Délai moyen de prise en charge</div></div>
+        <div class="indicateur"><div class="nombre">6</div><div class="libelle">Incidents en retard</div></div>
+      </div>
+      <br>
+      <div class="carte"><h3>Incidents récurrents par catégorie</h3>
+        <table>
+          <tr><th>Catégorie</th><th>Nombre</th><th>Dernier incident</th></tr>
+          <tr><td>Équipement / Maintenance</td><td>19</td><td>Hier</td></tr>
+          <tr><td>Entrepôt / Stockage</td><td>14</td><td>Aujourd'hui</td></tr>
+          <tr><td>Infrastructure / Bâtiment</td><td>11</td><td>Il y a 3 jours</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div id="dir-export" class="page" style="display:none">
+      <div class="carte">
+        <div class="champ-form">
+          <div><label>Format</label><select><option>CSV</option><option>Excel</option></select></div>
+          <div><label>Période</label><select><option>Ce mois-ci</option><option>3 derniers mois</option><option>Cette année</option></select></div>
+          <div class="plein"><label>Filtres appliqués</label><p class="vide" style="padding:0">Les filtres du tableau de bord sont repris automatiquement.</p></div>
+        </div>
+        <div class="actions"><button class="btn petit" type="button" onclick="montrer('Fichier prêt au téléchargement')">Exporter</button></div>
+      </div>
+    </div>
+  </main>
+</section>
+
+<!-- Boîte de dialogue (justification ou motif) -->
+<div class="dialogue" id="dialogue">
+  <div class="boite">
+    <h3 id="dialogue-titre"></h3>
+    <p id="dialogue-texte"></p>
+    <textarea placeholder="Saisissez le texte obligatoire"></textarea>
+    <div class="actions">
+      <button class="btn secondaire petit" type="button" onclick="fermerDialogue()">Annuler</button>
+      <button class="btn petit" type="button" id="dialogue-bouton" onclick="fermerDialogue(); montrer('Action enregistrée dans l\'historique')">Confirmer</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  const ecrans = {
+    connexion: document.getElementById('ecran-connexion'),
+    salarie: document.getElementById('ecran-salarie'),
+    responsable: document.getElementById('ecran-responsable'),
+    admin: document.getElementById('ecran-admin'),
+    direction: document.getElementById('ecran-direction')
+  };
+  const titres = {
+    connexion: 'Écran de connexion',
+    salarie: 'Vue salarié',
+    responsable: 'Vue responsable de service',
+    admin: 'Vue administrateur',
+    direction: 'Vue direction'
+  };
+
+  // Sélecteur de rôle
+  function afficher(role) {
+    for (const k in ecrans) {
+      ecrans[k].classList.toggle('actif', k === role);
+      if (k === 'connexion') ecrans[k].style.display = (k === role) ? 'flex' : 'none';
+    }
+    if (role !== 'connexion') ecrans.connexion.style.display = 'none';
+    document.getElementById('titre-ecran').textContent = 'Maquette CIVADIS – ' + titres[role];
+    if (role !== 'connexion') {
+      const premier = ecrans[role].querySelector('.menu a');
+      if (premier) choisirPage(role, premier.dataset.page);
+    }
+  }
+  document.getElementById('role').addEventListener('change', e => afficher(e.target.value));
+
+  // Navigation dans le menu de chaque rôle
+  function choisirPage(role, page) {
+    const ecran = ecrans[role];
+    ecran.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+    ecran.querySelectorAll('.menu a').forEach(a => a.classList.toggle('actif', a.dataset.page === page));
+    const cible = document.getElementById(page);
+    if (cible) cible.style.display = 'block';
+    const titre = ecran.querySelector('.menu a[data-page="' + page + '"]');
+    if (titre) ecran.querySelector('.entete h2').textContent = titre.textContent;
+  }
+  document.querySelectorAll('.menu a[data-page]').forEach(a => {
+    a.addEventListener('click', () => {
+      const role = a.closest('section').id.replace('ecran-', '');
+      const map = { salarie: 'salarie', responsable: 'responsable', admin: 'admin', direction: 'direction' };
+      choisirPage(map[role], a.dataset.page);
+    });
+  });
+
+  // Fiche d'incident
+  function ouvrirFiche(id) {
+    const section = document.getElementById(id).closest('section');
+    section.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+    document.getElementById(id).style.display = 'block';
+    section.querySelector('.entete h2').textContent = 'Fiche d\'incident';
+  }
+
+  // Connexion : premier clic = erreur, second clic = entrée
+  let tentative = 0;
+  document.getElementById('bouton-connexion').addEventListener('click', () => {
+    tentative++;
+    if (tentative === 1) {
+      document.getElementById('champ-mdp').classList.add('invalide');
+    } else {
+      afficher(document.getElementById('role').value === 'connexion' ? 'salarie' : document.getElementById('role').value);
+      document.getElementById('role').value = 'salarie';
+      afficher('salarie');
+      tentative = 0;
+    }
+  });
+
+  function confirmerDeclaration() {
+    montrer('Déclaration envoyée. Confirmé par le serveur : INC-2026-0843');
+  }
+
+  function montrer(message) {
+    const t = document.getElementById('toast');
+    t.textContent = message;
+    t.classList.add('ouvert');
+    clearTimeout(window._t);
+    window._t = setTimeout(() => t.classList.remove('ouvert'), 2600);
+  }
+
+  function ouvrirDialogue(titre, texte, bouton) {
+    document.getElementById('dialogue-titre').textContent = titre;
+    document.getElementById('dialogue-texte').textContent = texte;
+    document.getElementById('dialogue-bouton').textContent = bouton;
+    document.getElementById('dialogue').classList.add('ouvert');
+  }
+  function fermerDialogue() {
+    document.getElementById('dialogue').classList.remove('ouvert');
+  }
+
+  // Au démarrage : écran de connexion
+  afficher('connexion');
+</script>
+</body>
+</html>
