@@ -1,0 +1,1676 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.3.6 Chrome/140.0.7339.249 Electron/38.8.0 Safari/537.36" version="29.3.6" pages="25">
+  <diagram name="Séquence 1 - S&#39;inscrire" id="n489">
+    <mxGraphModel dx="2518" dy="611" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1250" pageHeight="804" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="n181" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontStyle=1;fontSize=14;" value="Séquence 1/12 : s&#39;inscrire (création du compte par l&#39;administrateur)" vertex="1">
+          <mxGeometry height="30" width="1100" x="40" y="8" as="geometry" />
+        </mxCell>
+        <mxCell id="n182" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Administrateur" vertex="1">
+          <mxGeometry height="724" width="180" x="40" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n183" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Application (navigateur, PWA)" vertex="1">
+          <mxGeometry height="724" width="180" x="270" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n184" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" value="Serveur API" vertex="1">
+          <mxGeometry height="724" width="180" x="500" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n185" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#f5f5f5;strokeColor=#666666;" value="Base PostgreSQL" vertex="1">
+          <mxGeometry height="724" width="180" x="730" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n186" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="1: ouvrir « Comptes et droits » puis « Nouveau compte »">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="130" as="sourcePoint" />
+            <mxPoint x="360" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n187" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="2: saisir nom, prénom, e-mail, site, service, rôle">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="170" as="sourcePoint" />
+            <mxPoint x="360" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n188" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="3: POST /comptes (données du compte)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="210" as="sourcePoint" />
+            <mxPoint x="590" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n189" edge="1" parent="1" style="html=1;verticalAlign=middle;align=left;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="4: contrôle : e-mail au bon format, rôle unique, site et service existants">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="660" y="250" />
+              <mxPoint x="660" y="276" />
+            </Array>
+            <mxPoint x="590" y="250" as="sourcePoint" />
+            <mxPoint x="590" y="276" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n190" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontStyle=2;" value="[e-mail libre et données valides]" vertex="1">
+          <mxGeometry height="20" width="600" x="20" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="n191" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="5: INSERT utilisateur (statut « Actif », rôle, site, service)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="336" as="sourcePoint" />
+            <mxPoint x="820" y="336" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n192" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="6: identifiant enregistré">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="820" y="376" as="sourcePoint" />
+            <mxPoint x="590" y="376" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n193" edge="1" parent="1" style="html=1;verticalAlign=middle;align=left;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="7: génération d&#39;un mot de passe provisoire (haché en base)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="660" y="416" />
+              <mxPoint x="660" y="442" />
+            </Array>
+            <mxPoint x="590" y="416" as="sourcePoint" />
+            <mxPoint x="590" y="442" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n194" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="8: 201 Créé">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="470" as="sourcePoint" />
+            <mxPoint x="360" y="470" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n195" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="9: affiche le compte créé et les identifiants provisoires">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="510" as="sourcePoint" />
+            <mxPoint x="130" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n196" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontStyle=2;" value="[e-mail déjà utilisé]" vertex="1">
+          <mxGeometry height="20" width="600" x="20" y="546" as="geometry" />
+        </mxCell>
+        <mxCell id="n197" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="10: 409 Conflict">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="582" as="sourcePoint" />
+            <mxPoint x="360" y="582" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n198" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="11: affiche « Cette adresse est déjà utilisée »">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="622" as="sourcePoint" />
+            <mxPoint x="130" y="622" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n199" parent="1" style="shape=umlFrame;whiteSpace=wrap;html=1;width=60;height=22;boundedLbl=1;verticalAlign=top;align=left;spacingLeft=4;fontSize=11;fontStyle=1;fillColor=none;strokeColor=#444444;" value="alt" vertex="1">
+          <mxGeometry height="376" width="990" x="-20" y="282" as="geometry" />
+        </mxCell>
+        <mxCell id="n201" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeColor=#888888;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-20" y="536" as="sourcePoint" />
+            <mxPoint x="970" y="536" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+<diagram name="Séquence 2 - Se connecter" id="n490">
+    <mxGraphModel dx="2518" dy="611" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1250" pageHeight="1002" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="n202" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontStyle=1;fontSize=14;" value="Séquence 2/12 : se connecter" vertex="1">
+          <mxGeometry height="30" width="1100" x="40" y="8" as="geometry" />
+        </mxCell>
+        <mxCell id="n203" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Utilisateur" vertex="1">
+          <mxGeometry height="922" width="180" x="40" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n204" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Application (navigateur, PWA)" vertex="1">
+          <mxGeometry height="922" width="180" x="270" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n205" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" value="Serveur API" vertex="1">
+          <mxGeometry height="922" width="180" x="500" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n206" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#f5f5f5;strokeColor=#666666;" value="Base PostgreSQL" vertex="1">
+          <mxGeometry height="922" width="180" x="730" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n207" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="1: ouvrir la page de connexion">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="130" as="sourcePoint" />
+            <mxPoint x="360" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n208" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="2: saisir l&#39;identifiant (e-mail) et le mot de passe">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="170" as="sourcePoint" />
+            <mxPoint x="360" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n209" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="3: POST /auth/login">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="210" as="sourcePoint" />
+            <mxPoint x="590" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n210" edge="1" parent="1" style="html=1;verticalAlign=middle;align=left;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="4: contrôle des champs (présence et format)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="660" y="250" />
+              <mxPoint x="660" y="276" />
+            </Array>
+            <mxPoint x="590" y="250" as="sourcePoint" />
+            <mxPoint x="590" y="276" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n211" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontStyle=2;" value="[champs valides]" vertex="1">
+          <mxGeometry height="20" width="600" x="20" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="n212" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="5: SELECT utilisateur par e-mail">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="336" as="sourcePoint" />
+            <mxPoint x="820" y="336" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n213" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="6: utilisateur trouvé (ou aucun)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="820" y="376" as="sourcePoint" />
+            <mxPoint x="590" y="376" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n214" edge="1" parent="1" style="html=1;verticalAlign=middle;align=left;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="7: comparaison du mot de passe avec le hash enregistré">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="660" y="416" />
+              <mxPoint x="660" y="442" />
+            </Array>
+            <mxPoint x="590" y="416" as="sourcePoint" />
+            <mxPoint x="590" y="442" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n215" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontStyle=2;" value="[identifiants corrects et compte actif]" vertex="1">
+          <mxGeometry height="20" width="600" x="20" y="466" as="geometry" />
+        </mxCell>
+        <mxCell id="n216" edge="1" parent="1" style="html=1;verticalAlign=middle;align=left;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="8: création de la session (rôle et identifiant)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="660" y="502" />
+              <mxPoint x="660" y="528" />
+            </Array>
+            <mxPoint x="590" y="502" as="sourcePoint" />
+            <mxPoint x="590" y="528" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n217" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="9: 200 OK (session)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="556" as="sourcePoint" />
+            <mxPoint x="360" y="556" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n218" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="10: affiche l&#39;espace du rôle (« À faire », « Mes incidents »…)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="596" as="sourcePoint" />
+            <mxPoint x="130" y="596" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n219" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontStyle=2;" value="[mot de passe incorrect]" vertex="1">
+          <mxGeometry height="20" width="600" x="20" y="632" as="geometry" />
+        </mxCell>
+        <mxCell id="n220" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="11: 401 Non autorisé">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="668" as="sourcePoint" />
+            <mxPoint x="360" y="668" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n221" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="12: affiche « Mot de passe incorrect » sous le champ">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="708" as="sourcePoint" />
+            <mxPoint x="130" y="708" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n222" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontStyle=2;" value="[compte désactivé]" vertex="1">
+          <mxGeometry height="20" width="600" x="20" y="744" as="geometry" />
+        </mxCell>
+        <mxCell id="n223" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="13: 403 Compte désactivé">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="780" as="sourcePoint" />
+            <mxPoint x="360" y="780" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n224" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="14: affiche « Compte désactivé, contacter l&#39;administrateur »">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="820" as="sourcePoint" />
+            <mxPoint x="130" y="820" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n225" parent="1" style="shape=umlFrame;whiteSpace=wrap;html=1;width=60;height=22;boundedLbl=1;verticalAlign=top;align=left;spacingLeft=4;fontSize=11;fontStyle=1;fillColor=none;strokeColor=#444444;" value="alt" vertex="1">
+          <mxGeometry height="574" width="990" x="-20" y="282" as="geometry" />
+        </mxCell>
+        <mxCell id="n227" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeColor=#888888;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-20" y="456" as="sourcePoint" />
+            <mxPoint x="970" y="456" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n228" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeColor=#888888;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-20" y="622" as="sourcePoint" />
+            <mxPoint x="970" y="622" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n229" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeColor=#888888;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-20" y="734" as="sourcePoint" />
+            <mxPoint x="970" y="734" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+<diagram name="Séquence 3 - Déclarer en ligne" id="n491">
+    <mxGraphModel dx="2518" dy="611" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1250" pageHeight="1130" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="n230" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontStyle=1;fontSize=14;" value="Séquence 3/12 : déclarer une anomalie ou un incident en ligne" vertex="1">
+          <mxGeometry height="30" width="1100" x="40" y="8" as="geometry" />
+        </mxCell>
+        <mxCell id="n231" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Salarié" vertex="1">
+          <mxGeometry height="1050" width="180" x="40" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n232" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Application (navigateur, PWA)" vertex="1">
+          <mxGeometry height="1050" width="180" x="270" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n233" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" value="Serveur API" vertex="1">
+          <mxGeometry height="1050" width="180" x="500" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n234" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#f5f5f5;strokeColor=#666666;" value="Base PostgreSQL" vertex="1">
+          <mxGeometry height="1050" width="180" x="730" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n235" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="1: ouvrir « Déclarer »">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="130" as="sourcePoint" />
+            <mxPoint x="360" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n236" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="2: remplir le formulaire (titre, description, catégorie, activité, site, service, date et heure du constat)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="170" as="sourcePoint" />
+            <mxPoint x="360" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n237" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="3: joindre les photos (5 maximum, 5 Mo chacune)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="210" as="sourcePoint" />
+            <mxPoint x="360" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n238" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="4: cliquer sur « Enregistrer »">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="250" as="sourcePoint" />
+            <mxPoint x="360" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n239" edge="1" parent="1" style="html=1;verticalAlign=middle;align=left;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="5: contrôle du format des champs (date, heure, taille des photos)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="430" y="290" />
+              <mxPoint x="430" y="316" />
+            </Array>
+            <mxPoint x="360" y="290" as="sourcePoint" />
+            <mxPoint x="360" y="316" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n240" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="6: POST /incidents (données, photos, UUID)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="344" as="sourcePoint" />
+            <mxPoint x="590" y="344" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n241" edge="1" parent="1" style="html=1;verticalAlign=middle;align=left;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="7: contrôle des droits : rôle, site et service">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="660" y="384" />
+              <mxPoint x="660" y="410" />
+            </Array>
+            <mxPoint x="590" y="384" as="sourcePoint" />
+            <mxPoint x="590" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n242" edge="1" parent="1" style="html=1;verticalAlign=middle;align=left;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="8: contrôle des champs obligatoires et du nombre de pièces jointes">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="660" y="438" />
+              <mxPoint x="660" y="464" />
+            </Array>
+            <mxPoint x="590" y="438" as="sourcePoint" />
+            <mxPoint x="590" y="464" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n243" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontStyle=2;" value="[données valides et droits accordés]" vertex="1">
+          <mxGeometry height="20" width="600" x="20" y="488" as="geometry" />
+        </mxCell>
+        <mxCell id="n244" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="9: INSERT incident (statut « Nouveau », auteur, date de création)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="524" as="sourcePoint" />
+            <mxPoint x="820" y="524" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n245" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="10: identifiant enregistré (numéro INC-AAAA-NNNN)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="820" y="564" as="sourcePoint" />
+            <mxPoint x="590" y="564" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n246" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="11: INSERT événement « Création » dans l&#39;historique">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="604" as="sourcePoint" />
+            <mxPoint x="820" y="604" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n247" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="12: événement enregistré">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="820" y="644" as="sourcePoint" />
+            <mxPoint x="590" y="644" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n248" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="13: 201 Créé (numéro de l&#39;incident)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="684" as="sourcePoint" />
+            <mxPoint x="360" y="684" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n249" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="14: affiche « Confirmé par le serveur » et le numéro">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="724" as="sourcePoint" />
+            <mxPoint x="130" y="724" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n250" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontStyle=2;" value="[champs obligatoires manquants ou photo trop lourde]" vertex="1">
+          <mxGeometry height="20" width="600" x="20" y="760" as="geometry" />
+        </mxCell>
+        <mxCell id="n251" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="15: 400 Bad Request (liste des champs en erreur)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="796" as="sourcePoint" />
+            <mxPoint x="360" y="796" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n252" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="16: affiche les erreurs près des champs, rien n&#39;est enregistré">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="836" as="sourcePoint" />
+            <mxPoint x="130" y="836" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n253" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontStyle=2;" value="[droits insuffisants pour ce site ou ce service]" vertex="1">
+          <mxGeometry height="20" width="600" x="20" y="872" as="geometry" />
+        </mxCell>
+        <mxCell id="n254" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="17: 403 Forbidden">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="908" as="sourcePoint" />
+            <mxPoint x="360" y="908" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n255" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="18: affiche « Vous n&#39;êtes pas autorisé à déclarer ici »">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="948" as="sourcePoint" />
+            <mxPoint x="130" y="948" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n256" parent="1" style="shape=umlFrame;whiteSpace=wrap;html=1;width=60;height=22;boundedLbl=1;verticalAlign=top;align=left;spacingLeft=4;fontSize=11;fontStyle=1;fillColor=none;strokeColor=#444444;" value="alt" vertex="1">
+          <mxGeometry height="514" width="990" x="-20" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="n258" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeColor=#888888;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-20" y="750" as="sourcePoint" />
+            <mxPoint x="970" y="750" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n259" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeColor=#888888;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-20" y="862" as="sourcePoint" />
+            <mxPoint x="970" y="862" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+<diagram name="Séquence 4 - Déclarer hors connexion" id="n492">
+    <mxGraphModel dx="2518" dy="611" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1250" pageHeight="1172" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="n260" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontStyle=1;fontSize=14;" value="Séquence 4/12 : déclarer hors connexion et envoyer sans doublon" vertex="1">
+          <mxGeometry height="30" width="1100" x="40" y="8" as="geometry" />
+        </mxCell>
+        <mxCell id="n261" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Salarié" vertex="1">
+          <mxGeometry height="1092" width="180" x="40" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n262" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Application (PWA, IndexedDB)" vertex="1">
+          <mxGeometry height="1092" width="180" x="270" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n263" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" value="Serveur API" vertex="1">
+          <mxGeometry height="1092" width="180" x="500" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n264" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#f5f5f5;strokeColor=#666666;" value="Base PostgreSQL" vertex="1">
+          <mxGeometry height="1092" width="180" x="730" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n265" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="1: créer la déclaration sans réseau (formulaire, photos)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="130" as="sourcePoint" />
+            <mxPoint x="360" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n266" edge="1" parent="1" style="html=1;verticalAlign=middle;align=left;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="2: enregistrer dans IndexedDB, statut « Brouillon local »">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="430" y="170" />
+              <mxPoint x="430" y="196" />
+            </Array>
+            <mxPoint x="360" y="170" as="sourcePoint" />
+            <mxPoint x="360" y="196" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n267" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="3: fermer l&#39;application (le brouillon reste sur le téléphone)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="224" as="sourcePoint" />
+            <mxPoint x="360" y="224" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n268" edge="1" parent="1" style="html=1;verticalAlign=middle;align=left;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="4: détection du retour du réseau à l&#39;ouverture">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="430" y="264" />
+              <mxPoint x="430" y="290" />
+            </Array>
+            <mxPoint x="360" y="264" as="sourcePoint" />
+            <mxPoint x="360" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n269" edge="1" parent="1" style="html=1;verticalAlign=middle;align=left;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="5: statut passe à « En attente d&#39;envoi »">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="430" y="318" />
+              <mxPoint x="430" y="344" />
+            </Array>
+            <mxPoint x="360" y="318" as="sourcePoint" />
+            <mxPoint x="360" y="344" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n270" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="6: POST /incidents (même UUID que le brouillon)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="372" as="sourcePoint" />
+            <mxPoint x="590" y="372" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n271" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="7: SELECT : cet UUID existe-t-il ?">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="412" as="sourcePoint" />
+            <mxPoint x="820" y="412" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n272" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="8: résultat de la recherche">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="820" y="452" as="sourcePoint" />
+            <mxPoint x="590" y="452" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n273" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontStyle=2;" value="[UUID inconnu]" vertex="1">
+          <mxGeometry height="20" width="600" x="20" y="488" as="geometry" />
+        </mxCell>
+        <mxCell id="n274" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="9: INSERT incident (statut « Nouveau »)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="524" as="sourcePoint" />
+            <mxPoint x="820" y="524" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n275" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="10: identifiant enregistré">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="820" y="564" as="sourcePoint" />
+            <mxPoint x="590" y="564" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n276" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="11: 201 Créé">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="604" as="sourcePoint" />
+            <mxPoint x="360" y="604" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n277" edge="1" parent="1" style="html=1;verticalAlign=middle;align=left;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="12: suppression du brouillon du téléphone">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="430" y="644" />
+              <mxPoint x="430" y="670" />
+            </Array>
+            <mxPoint x="360" y="644" as="sourcePoint" />
+            <mxPoint x="360" y="670" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n278" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="13: affiche « Confirmé par le serveur »">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="698" as="sourcePoint" />
+            <mxPoint x="130" y="698" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n279" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontStyle=2;" value="[UUID déjà reçu : doublon ignoré]" vertex="1">
+          <mxGeometry height="20" width="600" x="20" y="734" as="geometry" />
+        </mxCell>
+        <mxCell id="n280" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="14: 200 OK, aucun nouvel enregistrement">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="770" as="sourcePoint" />
+            <mxPoint x="360" y="770" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n281" edge="1" parent="1" style="html=1;verticalAlign=middle;align=left;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="15: suppression du brouillon du téléphone">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="430" y="810" />
+              <mxPoint x="430" y="836" />
+            </Array>
+            <mxPoint x="360" y="810" as="sourcePoint" />
+            <mxPoint x="360" y="836" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n282" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="16: affiche « Confirmé par le serveur » (pas de doublon)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="864" as="sourcePoint" />
+            <mxPoint x="130" y="864" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n283" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontStyle=2;" value="[réseau coupé pendant l&#39;envoi]" vertex="1">
+          <mxGeometry height="20" width="600" x="20" y="900" as="geometry" />
+        </mxCell>
+        <mxCell id="n284" edge="1" parent="1" style="html=1;verticalAlign=middle;align=left;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="17: envoi échoué : le brouillon reste « En attente d&#39;envoi »">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="430" y="936" />
+              <mxPoint x="430" y="962" />
+            </Array>
+            <mxPoint x="360" y="936" as="sourcePoint" />
+            <mxPoint x="360" y="962" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n285" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="18: affiche un message et propose de relancer l&#39;envoi">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="990" as="sourcePoint" />
+            <mxPoint x="130" y="990" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n286" parent="1" style="shape=umlFrame;whiteSpace=wrap;html=1;width=60;height=22;boundedLbl=1;verticalAlign=top;align=left;spacingLeft=4;fontSize=11;fontStyle=1;fillColor=none;strokeColor=#444444;" value="alt" vertex="1">
+          <mxGeometry height="556" width="990" x="-20" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="n288" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeColor=#888888;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-20" y="724" as="sourcePoint" />
+            <mxPoint x="970" y="724" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n289" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeColor=#888888;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-20" y="890" as="sourcePoint" />
+            <mxPoint x="970" y="890" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+<diagram name="Séquence 5 - Qualifier et affecter" id="n493">
+    <mxGraphModel dx="2518" dy="611" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1250" pageHeight="1190" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="n290" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontStyle=1;fontSize=14;" value="Séquence 5/12 : qualifier et affecter un incident" vertex="1">
+          <mxGeometry height="30" width="1100" x="40" y="8" as="geometry" />
+        </mxCell>
+        <mxCell id="n291" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Responsable de service" vertex="1">
+          <mxGeometry height="1110" width="180" x="40" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n292" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Application (navigateur, PWA)" vertex="1">
+          <mxGeometry height="1110" width="180" x="270" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n293" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" value="Serveur API" vertex="1">
+          <mxGeometry height="1110" width="180" x="500" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n294" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#f5f5f5;strokeColor=#666666;" value="Base PostgreSQL" vertex="1">
+          <mxGeometry height="1110" width="180" x="730" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n295" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Intervenant (salarié ou responsable)" vertex="1">
+          <mxGeometry height="1110" width="180" x="960" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n296" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="1: ouvrir un incident « Nouveau » de son service">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="130" as="sourcePoint" />
+            <mxPoint x="360" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n297" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="2: lire la description et les photos">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="170" as="sourcePoint" />
+            <mxPoint x="360" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n298" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="3: confirmer ou corriger la gravité">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="210" as="sourcePoint" />
+            <mxPoint x="360" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n299" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="4: fixer la priorité officielle">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="250" as="sourcePoint" />
+            <mxPoint x="360" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n300" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="5: PATCH /incidents/{id}/qualification">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="290" as="sourcePoint" />
+            <mxPoint x="590" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n301" edge="1" parent="1" style="html=1;verticalAlign=middle;align=left;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="6: contrôle : le responsable appartient au service de l&#39;incident">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="660" y="330" />
+              <mxPoint x="660" y="356" />
+            </Array>
+            <mxPoint x="590" y="330" as="sourcePoint" />
+            <mxPoint x="590" y="356" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n302" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="7: UPDATE gravité, priorité ; statut « Qualifié / Affecté »">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="384" as="sourcePoint" />
+            <mxPoint x="820" y="384" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n303" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="8: INSERT événement « Qualification » (auteur, date)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="424" as="sourcePoint" />
+            <mxPoint x="820" y="424" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n304" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="9: OK">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="820" y="464" as="sourcePoint" />
+            <mxPoint x="590" y="464" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n305" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="10: 200 OK">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="504" as="sourcePoint" />
+            <mxPoint x="360" y="504" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n306" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="11: choisir le service de traitement">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="544" as="sourcePoint" />
+            <mxPoint x="360" y="544" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n307" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontStyle=2;" value="[affectation à un intervenant précis]" vertex="1">
+          <mxGeometry height="20" width="600" x="20" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="n308" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="12: choisir l&#39;intervenant dans ce service">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="616" as="sourcePoint" />
+            <mxPoint x="360" y="616" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n309" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="13: POST /affectations (intervenant)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="656" as="sourcePoint" />
+            <mxPoint x="590" y="656" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n310" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="14: INSERT affectation + événement « Affectation »">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="696" as="sourcePoint" />
+            <mxPoint x="820" y="696" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n311" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="15: incident ajouté à « Mes incidents à traiter »">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="736" as="sourcePoint" />
+            <mxPoint x="1050" y="736" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n312" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="16: 201 Créé">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="776" as="sourcePoint" />
+            <mxPoint x="360" y="776" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n313" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontStyle=2;" value="[affectation à tout le service de traitement]" vertex="1">
+          <mxGeometry height="20" width="600" x="20" y="812" as="geometry" />
+        </mxCell>
+        <mxCell id="n314" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="17: confirmer l&#39;affectation au service">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="848" as="sourcePoint" />
+            <mxPoint x="360" y="848" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n315" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="18: POST /affectations (service, sans intervenant)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="888" as="sourcePoint" />
+            <mxPoint x="590" y="888" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n316" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="19: INSERT affectation + événement « Affectation »">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="928" as="sourcePoint" />
+            <mxPoint x="820" y="928" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n317" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="20: 201 Créé">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="968" as="sourcePoint" />
+            <mxPoint x="360" y="968" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n318" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="21: confirmation affichée au responsable">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="1008" as="sourcePoint" />
+            <mxPoint x="130" y="1008" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n319" parent="1" style="shape=umlFrame;whiteSpace=wrap;html=1;width=60;height=22;boundedLbl=1;verticalAlign=top;align=left;spacingLeft=4;fontSize=11;fontStyle=1;fillColor=none;strokeColor=#444444;" value="alt" vertex="1">
+          <mxGeometry height="482" width="1220" x="-20" y="562" as="geometry" />
+        </mxCell>
+        <mxCell id="n321" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeColor=#888888;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-20" y="802" as="sourcePoint" />
+            <mxPoint x="1200" y="802" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+<diagram name="Séquence 6 - Prendre en charge et résoudre" id="n494">
+    <mxGraphModel dx="1268" dy="611" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1250" pageHeight="906" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="n322" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontStyle=1;fontSize=14;" value="Séquence 6/12 : prendre en charge et résoudre un incident" vertex="1">
+          <mxGeometry height="30" width="1100" x="40" y="8" as="geometry" />
+        </mxCell>
+        <mxCell id="n323" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Intervenant (salarié ou responsable)" vertex="1">
+          <mxGeometry height="826" width="180" x="40" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n324" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Application (navigateur, PWA)" vertex="1">
+          <mxGeometry height="826" width="180" x="270" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n325" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" value="Serveur API" vertex="1">
+          <mxGeometry height="826" width="180" x="500" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n326" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#f5f5f5;strokeColor=#666666;" value="Base PostgreSQL" vertex="1">
+          <mxGeometry height="826" width="180" x="730" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n327" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="1: ouvrir « Mes incidents à traiter »">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="130" as="sourcePoint" />
+            <mxPoint x="360" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n328" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="2: ouvrir l&#39;incident affecté">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="170" as="sourcePoint" />
+            <mxPoint x="360" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n329" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="3: prendre en charge l&#39;incident">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="210" as="sourcePoint" />
+            <mxPoint x="360" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n330" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="4: PATCH /incidents/{id}/statut (« En cours »)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="250" as="sourcePoint" />
+            <mxPoint x="590" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n331" edge="1" parent="1" style="html=1;verticalAlign=middle;align=left;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="5: contrôle : l&#39;intervenant est affecté à cet incident">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="660" y="290" />
+              <mxPoint x="660" y="316" />
+            </Array>
+            <mxPoint x="590" y="290" as="sourcePoint" />
+            <mxPoint x="590" y="316" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n332" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="6: UPDATE statut ; INSERT événement « Prise en charge »">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="344" as="sourcePoint" />
+            <mxPoint x="820" y="344" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n333" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="7: OK">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="820" y="384" as="sourcePoint" />
+            <mxPoint x="590" y="384" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n334" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="8: 200 OK">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="424" as="sourcePoint" />
+            <mxPoint x="360" y="424" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n335" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="9: noter les actions réalisées (date, description)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="464" as="sourcePoint" />
+            <mxPoint x="360" y="464" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n336" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="10: POST /incidents/{id}/actions">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="504" as="sourcePoint" />
+            <mxPoint x="590" y="504" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n337" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="11: INSERT action + événement">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="544" as="sourcePoint" />
+            <mxPoint x="820" y="544" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n338" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="12: proposer la résolution avec description">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="584" as="sourcePoint" />
+            <mxPoint x="360" y="584" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n339" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="13: PATCH statut « Résolu »">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="624" as="sourcePoint" />
+            <mxPoint x="590" y="624" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n340" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="14: UPDATE statut ; INSERT événement « Résolution proposée »">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="664" as="sourcePoint" />
+            <mxPoint x="820" y="664" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n341" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="15: 200 OK">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="704" as="sourcePoint" />
+            <mxPoint x="360" y="704" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n342" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="16: affiche « Résolution proposée, en attente de validation »">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="744" as="sourcePoint" />
+            <mxPoint x="130" y="744" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+<diagram name="Séquence 7 - Valider, clôturer, rouvrir ou annuler" id="n495">
+    <mxGraphModel dx="2518" dy="611" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1250" pageHeight="1142" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="n344" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontStyle=1;fontSize=14;" value="Séquence 7/12 : valider, clôturer, rouvrir ou annuler" vertex="1">
+          <mxGeometry height="30" width="1100" x="40" y="8" as="geometry" />
+        </mxCell>
+        <mxCell id="n345" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Responsable de service" vertex="1">
+          <mxGeometry height="1062" width="180" x="40" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n346" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Application (navigateur, PWA)" vertex="1">
+          <mxGeometry height="1062" width="180" x="270" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n347" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" value="Serveur API" vertex="1">
+          <mxGeometry height="1062" width="180" x="500" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n348" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#f5f5f5;strokeColor=#666666;" value="Base PostgreSQL" vertex="1">
+          <mxGeometry height="1062" width="180" x="730" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n349" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Intervenant (salarié ou responsable)" vertex="1">
+          <mxGeometry height="1062" width="180" x="960" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n350" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="1: ouvrir l&#39;incident « Résolu »">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="130" as="sourcePoint" />
+            <mxPoint x="360" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n351" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="2: consulter la résolution proposée et l&#39;historique">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="170" as="sourcePoint" />
+            <mxPoint x="360" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n352" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontStyle=2;" value="[résolution acceptée]" vertex="1">
+          <mxGeometry height="20" width="600" x="20" y="206" as="geometry" />
+        </mxCell>
+        <mxCell id="n353" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="3: valider la résolution et clôturer">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="242" as="sourcePoint" />
+            <mxPoint x="360" y="242" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n354" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="4: PATCH statut « Clôturé »">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="282" as="sourcePoint" />
+            <mxPoint x="590" y="282" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n355" edge="1" parent="1" style="html=1;verticalAlign=middle;align=left;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="5: contrôle : le responsable appartient au service de l&#39;incident">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="660" y="322" />
+              <mxPoint x="660" y="348" />
+            </Array>
+            <mxPoint x="590" y="322" as="sourcePoint" />
+            <mxPoint x="590" y="348" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n356" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="6: UPDATE statut ; fiche figée">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="376" as="sourcePoint" />
+            <mxPoint x="820" y="376" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n357" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="7: INSERT événement « Clôture »">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="416" as="sourcePoint" />
+            <mxPoint x="820" y="416" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n358" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="8: OK">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="820" y="456" as="sourcePoint" />
+            <mxPoint x="590" y="456" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n359" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="9: 200 OK">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="496" as="sourcePoint" />
+            <mxPoint x="360" y="496" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n360" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="10: affiche « Incident clôturé »">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="536" as="sourcePoint" />
+            <mxPoint x="130" y="536" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n361" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontStyle=2;" value="[résolution refusée : réouverture]" vertex="1">
+          <mxGeometry height="20" width="600" x="20" y="572" as="geometry" />
+        </mxCell>
+        <mxCell id="n362" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="11: rouvrir avec justification écrite (obligatoire)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="608" as="sourcePoint" />
+            <mxPoint x="360" y="608" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n363" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="12: PATCH statut « En cours » + justification">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="648" as="sourcePoint" />
+            <mxPoint x="590" y="648" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n364" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="13: UPDATE statut ; INSERT événement « Réouverture »">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="688" as="sourcePoint" />
+            <mxPoint x="820" y="688" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n365" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="14: incident de nouveau dans « Mes incidents à traiter »">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="728" as="sourcePoint" />
+            <mxPoint x="1050" y="728" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n366" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="15: 200 OK">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="768" as="sourcePoint" />
+            <mxPoint x="360" y="768" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n367" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontStyle=2;" value="[annulation avant clôture]" vertex="1">
+          <mxGeometry height="20" width="600" x="20" y="804" as="geometry" />
+        </mxCell>
+        <mxCell id="n368" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="16: annuler avec motif (obligatoire)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="840" as="sourcePoint" />
+            <mxPoint x="360" y="840" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n369" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="17: PATCH statut « Annulé » + motif">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="880" as="sourcePoint" />
+            <mxPoint x="590" y="880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n370" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="18: UPDATE statut ; INSERT événement « Annulation »">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="920" as="sourcePoint" />
+            <mxPoint x="820" y="920" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n371" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="19: 200 OK">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="960" as="sourcePoint" />
+            <mxPoint x="360" y="960" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n372" parent="1" style="shape=umlFrame;whiteSpace=wrap;html=1;width=60;height=22;boundedLbl=1;verticalAlign=top;align=left;spacingLeft=4;fontSize=11;fontStyle=1;fillColor=none;strokeColor=#444444;" value="alt" vertex="1">
+          <mxGeometry height="808" width="1220" x="-20" y="188" as="geometry" />
+        </mxCell>
+        <mxCell id="n374" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeColor=#888888;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-20" y="562" as="sourcePoint" />
+            <mxPoint x="1200" y="562" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n375" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeColor=#888888;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-20" y="794" as="sourcePoint" />
+            <mxPoint x="1200" y="794" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+<diagram name="Séquence 8 - Commenter une fiche" id="n496">
+    <mxGraphModel dx="2518" dy="611" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1250" pageHeight="1004" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="n376" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontStyle=1;fontSize=14;" value="Séquence 8/12 : commenter une fiche d&#39;incident" vertex="1">
+          <mxGeometry height="30" width="1100" x="40" y="8" as="geometry" />
+        </mxCell>
+        <mxCell id="n377" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Utilisateur" vertex="1">
+          <mxGeometry height="924" width="180" x="40" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n378" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Application (navigateur, PWA)" vertex="1">
+          <mxGeometry height="924" width="180" x="270" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n379" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" value="Serveur API" vertex="1">
+          <mxGeometry height="924" width="180" x="500" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n380" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#f5f5f5;strokeColor=#666666;" value="Base PostgreSQL" vertex="1">
+          <mxGeometry height="924" width="180" x="730" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n381" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="1: ouvrir la fiche d&#39;un incident">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="130" as="sourcePoint" />
+            <mxPoint x="360" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n382" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="2: GET /incidents/{id}">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="170" as="sourcePoint" />
+            <mxPoint x="590" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n383" edge="1" parent="1" style="html=1;verticalAlign=middle;align=left;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="3: contrôle : l&#39;incident est visible pour ce rôle">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="660" y="210" />
+              <mxPoint x="660" y="236" />
+            </Array>
+            <mxPoint x="590" y="210" as="sourcePoint" />
+            <mxPoint x="590" y="236" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n384" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontStyle=2;" value="[incident visible]" vertex="1">
+          <mxGeometry height="20" width="600" x="20" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="n385" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="4: SELECT incident et historique">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="296" as="sourcePoint" />
+            <mxPoint x="820" y="296" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n386" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="5: fiche et événements">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="820" y="336" as="sourcePoint" />
+            <mxPoint x="590" y="336" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n387" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="6: 200 OK (fiche en lecture seule pour l&#39;historique)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="376" as="sourcePoint" />
+            <mxPoint x="360" y="376" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n388" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="7: affiche la fiche et l&#39;historique">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="416" as="sourcePoint" />
+            <mxPoint x="130" y="416" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n389" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="8: écrire un commentaire et cliquer sur « Envoyer »">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="456" as="sourcePoint" />
+            <mxPoint x="360" y="456" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n390" edge="1" parent="1" style="html=1;verticalAlign=middle;align=left;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="9: contrôle : texte non vide, longueur maximale">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="430" y="496" />
+              <mxPoint x="430" y="522" />
+            </Array>
+            <mxPoint x="360" y="496" as="sourcePoint" />
+            <mxPoint x="360" y="522" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n391" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="10: POST /incidents/{id}/commentaires">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="550" as="sourcePoint" />
+            <mxPoint x="590" y="550" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n392" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="11: INSERT commentaire + événement « Commentaire »">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="590" as="sourcePoint" />
+            <mxPoint x="820" y="590" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n393" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="12: OK">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="820" y="630" as="sourcePoint" />
+            <mxPoint x="590" y="630" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n394" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="13: 201 Créé">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="670" as="sourcePoint" />
+            <mxPoint x="360" y="670" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n395" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="14: affiche le commentaire avec auteur et date">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="710" as="sourcePoint" />
+            <mxPoint x="130" y="710" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n396" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontStyle=2;" value="[incident non visible pour ce rôle]" vertex="1">
+          <mxGeometry height="20" width="600" x="20" y="746" as="geometry" />
+        </mxCell>
+        <mxCell id="n397" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="15: 403 Forbidden">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="782" as="sourcePoint" />
+            <mxPoint x="360" y="782" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n398" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="16: affiche « Accès non autorisé »">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="822" as="sourcePoint" />
+            <mxPoint x="130" y="822" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n399" parent="1" style="shape=umlFrame;whiteSpace=wrap;html=1;width=60;height=22;boundedLbl=1;verticalAlign=top;align=left;spacingLeft=4;fontSize=11;fontStyle=1;fillColor=none;strokeColor=#444444;" value="alt" vertex="1">
+          <mxGeometry height="616" width="990" x="-20" y="242" as="geometry" />
+        </mxCell>
+        <mxCell id="n401" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeColor=#888888;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-20" y="736" as="sourcePoint" />
+            <mxPoint x="970" y="736" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+<diagram name="Séquence 9 - Consulter le tableau de bord" id="n497">
+    <mxGraphModel dx="2518" dy="611" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1250" pageHeight="898" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="n402" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontStyle=1;fontSize=14;" value="Séquence 9/12 : consulter le tableau de bord" vertex="1">
+          <mxGeometry height="30" width="1100" x="40" y="8" as="geometry" />
+        </mxCell>
+        <mxCell id="n403" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Responsable de service" vertex="1">
+          <mxGeometry height="818" width="180" x="40" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n404" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Application (navigateur, PWA)" vertex="1">
+          <mxGeometry height="818" width="180" x="270" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n405" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" value="Serveur API" vertex="1">
+          <mxGeometry height="818" width="180" x="500" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n406" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#f5f5f5;strokeColor=#666666;" value="Base PostgreSQL" vertex="1">
+          <mxGeometry height="818" width="180" x="730" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n407" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="1: ouvrir « Tableau de bord »">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="130" as="sourcePoint" />
+            <mxPoint x="360" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n408" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="2: GET /tableau-de-bord (période, filtres)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="170" as="sourcePoint" />
+            <mxPoint x="590" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n409" edge="1" parent="1" style="html=1;verticalAlign=middle;align=left;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="3: contrôle du rôle et du périmètre (service pour le responsable, tous services pour la direction)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="660" y="210" />
+              <mxPoint x="660" y="236" />
+            </Array>
+            <mxPoint x="590" y="210" as="sourcePoint" />
+            <mxPoint x="590" y="236" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n410" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontStyle=2;" value="[rôle autorisé]" vertex="1">
+          <mxGeometry height="20" width="600" x="20" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="n411" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="4: SELECT indicateurs du périmètre">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="296" as="sourcePoint" />
+            <mxPoint x="820" y="296" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n412" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="5: résultats agrégés">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="820" y="336" as="sourcePoint" />
+            <mxPoint x="590" y="336" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n413" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="6: 200 OK">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="376" as="sourcePoint" />
+            <mxPoint x="360" y="376" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n414" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="7: affiche les indicateurs (statut, priorité, délais, incidents en retard)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="416" as="sourcePoint" />
+            <mxPoint x="130" y="416" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n415" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="8: cliquer sur un indicateur">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="456" as="sourcePoint" />
+            <mxPoint x="360" y="456" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n416" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="9: GET /incidents?filtre=...">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="496" as="sourcePoint" />
+            <mxPoint x="590" y="496" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n417" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="10: SELECT incidents correspondants">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="536" as="sourcePoint" />
+            <mxPoint x="820" y="536" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n418" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="11: liste d&#39;incidents">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="820" y="576" as="sourcePoint" />
+            <mxPoint x="590" y="576" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n419" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="12: 200 OK">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="616" as="sourcePoint" />
+            <mxPoint x="360" y="616" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n420" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="13: affiche la liste des incidents concernés">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="656" as="sourcePoint" />
+            <mxPoint x="130" y="656" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n421" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontStyle=2;" value="[rôle non autorisé : salarié, intervenant, administrateur]" vertex="1">
+          <mxGeometry height="20" width="600" x="20" y="692" as="geometry" />
+        </mxCell>
+        <mxCell id="n422" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="14: 403 Forbidden">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="728" as="sourcePoint" />
+            <mxPoint x="360" y="728" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n423" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="15: affiche « Accès non autorisé »">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="768" as="sourcePoint" />
+            <mxPoint x="130" y="768" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n424" parent="1" style="shape=umlFrame;whiteSpace=wrap;html=1;width=60;height=22;boundedLbl=1;verticalAlign=top;align=left;spacingLeft=4;fontSize=11;fontStyle=1;fillColor=none;strokeColor=#444444;" value="alt" vertex="1">
+          <mxGeometry height="562" width="990" x="-20" y="242" as="geometry" />
+        </mxCell>
+        <mxCell id="n425" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeColor=#888888;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-20" y="682" as="sourcePoint" />
+            <mxPoint x="970" y="682" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+<diagram name="Séquence 10 - Exporter un rapport" id="n498">
+    <mxGraphModel dx="2518" dy="611" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1250" pageHeight="804" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="n426" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontStyle=1;fontSize=14;" value="Séquence 10/12 : exporter un rapport" vertex="1">
+          <mxGeometry height="30" width="1100" x="40" y="8" as="geometry" />
+        </mxCell>
+        <mxCell id="n427" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Direction" vertex="1">
+          <mxGeometry height="724" width="180" x="40" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n428" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Application (navigateur, PWA)" vertex="1">
+          <mxGeometry height="724" width="180" x="270" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n429" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" value="Serveur API" vertex="1">
+          <mxGeometry height="724" width="180" x="500" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n430" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#f5f5f5;strokeColor=#666666;" value="Base PostgreSQL" vertex="1">
+          <mxGeometry height="724" width="180" x="730" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n431" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="1: choisir la période et les filtres">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="130" as="sourcePoint" />
+            <mxPoint x="360" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n432" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="2: cliquer sur « Exporter » (CSV ou Excel)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="170" as="sourcePoint" />
+            <mxPoint x="360" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n433" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="3: POST /exports (filtres, format)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="210" as="sourcePoint" />
+            <mxPoint x="590" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n434" edge="1" parent="1" style="html=1;verticalAlign=middle;align=left;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="4: contrôle du rôle (direction) et des filtres">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="660" y="250" />
+              <mxPoint x="660" y="276" />
+            </Array>
+            <mxPoint x="590" y="250" as="sourcePoint" />
+            <mxPoint x="590" y="276" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n435" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontStyle=2;" value="[export autorisé]" vertex="1">
+          <mxGeometry height="20" width="600" x="20" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="n436" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="5: SELECT données filtrées (lecture seule)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="336" as="sourcePoint" />
+            <mxPoint x="820" y="336" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n437" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="6: données">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="820" y="376" as="sourcePoint" />
+            <mxPoint x="590" y="376" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n438" edge="1" parent="1" style="html=1;verticalAlign=middle;align=left;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="7: génération du fichier">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="660" y="416" />
+              <mxPoint x="660" y="442" />
+            </Array>
+            <mxPoint x="590" y="416" as="sourcePoint" />
+            <mxPoint x="590" y="442" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n439" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="8: 200 OK (fichier)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="470" as="sourcePoint" />
+            <mxPoint x="360" y="470" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n440" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="9: téléchargement du fichier">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="510" as="sourcePoint" />
+            <mxPoint x="130" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n441" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontStyle=2;" value="[erreur de génération]" vertex="1">
+          <mxGeometry height="20" width="600" x="20" y="546" as="geometry" />
+        </mxCell>
+        <mxCell id="n442" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="10: 500 Erreur serveur">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="582" as="sourcePoint" />
+            <mxPoint x="360" y="582" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n443" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="11: affiche « Export impossible, réessayer »">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="622" as="sourcePoint" />
+            <mxPoint x="130" y="622" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n444" parent="1" style="shape=umlFrame;whiteSpace=wrap;html=1;width=60;height=22;boundedLbl=1;verticalAlign=top;align=left;spacingLeft=4;fontSize=11;fontStyle=1;fillColor=none;strokeColor=#444444;" value="alt" vertex="1">
+          <mxGeometry height="376" width="990" x="-20" y="282" as="geometry" />
+        </mxCell>
+        <mxCell id="n446" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeColor=#888888;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-20" y="536" as="sourcePoint" />
+            <mxPoint x="970" y="536" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+<diagram name="Séquence 11 - Gérer comptes et droits" id="n499">
+    <mxGraphModel dx="2518" dy="611" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1250" pageHeight="790" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="n447" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontStyle=1;fontSize=14;" value="Séquence 11/12 : gérer comptes et droits" vertex="1">
+          <mxGeometry height="30" width="1100" x="40" y="8" as="geometry" />
+        </mxCell>
+        <mxCell id="n448" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Administrateur" vertex="1">
+          <mxGeometry height="710" width="180" x="40" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n449" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Application (navigateur, PWA)" vertex="1">
+          <mxGeometry height="710" width="180" x="270" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n450" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" value="Serveur API" vertex="1">
+          <mxGeometry height="710" width="180" x="500" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n451" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#f5f5f5;strokeColor=#666666;" value="Base PostgreSQL" vertex="1">
+          <mxGeometry height="710" width="180" x="730" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n452" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="1: ouvrir « Comptes et droits »">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="130" as="sourcePoint" />
+            <mxPoint x="360" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n453" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="2: choisir un compte">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="170" as="sourcePoint" />
+            <mxPoint x="360" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n454" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="3: désactiver le compte">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="210" as="sourcePoint" />
+            <mxPoint x="360" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n455" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="4: PATCH /comptes/{id} (actif = non)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="250" as="sourcePoint" />
+            <mxPoint x="590" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n456" edge="1" parent="1" style="html=1;verticalAlign=middle;align=left;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="5: contrôle : l&#39;administrateur ne peut pas désactiver son propre compte">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="660" y="290" />
+              <mxPoint x="660" y="316" />
+            </Array>
+            <mxPoint x="590" y="290" as="sourcePoint" />
+            <mxPoint x="590" y="316" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n457" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontStyle=2;" value="[désactivation autorisée]" vertex="1">
+          <mxGeometry height="20" width="600" x="20" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="n458" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="6: UPDATE utilisateur (actif = non) ; INSERT événement">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="376" as="sourcePoint" />
+            <mxPoint x="820" y="376" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n459" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="7: OK">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="820" y="416" as="sourcePoint" />
+            <mxPoint x="590" y="416" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n460" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="8: 200 OK">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="456" as="sourcePoint" />
+            <mxPoint x="360" y="456" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n461" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="9: affiche « Compte désactivé » (données conservées)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="496" as="sourcePoint" />
+            <mxPoint x="130" y="496" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n462" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontStyle=2;" value="[désactivation de son propre compte]" vertex="1">
+          <mxGeometry height="20" width="600" x="20" y="532" as="geometry" />
+        </mxCell>
+        <mxCell id="n463" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="10: 409 Conflict">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="568" as="sourcePoint" />
+            <mxPoint x="360" y="568" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n464" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="11: affiche « Vous ne pouvez pas désactiver votre compte »">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="608" as="sourcePoint" />
+            <mxPoint x="130" y="608" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n465" parent="1" style="shape=umlFrame;whiteSpace=wrap;html=1;width=60;height=22;boundedLbl=1;verticalAlign=top;align=left;spacingLeft=4;fontSize=11;fontStyle=1;fillColor=none;strokeColor=#444444;" value="alt" vertex="1">
+          <mxGeometry height="322" width="990" x="-20" y="322" as="geometry" />
+        </mxCell>
+        <mxCell id="n467" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeColor=#888888;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-20" y="522" as="sourcePoint" />
+            <mxPoint x="970" y="522" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+<diagram name="Séquence 12 - Gérer sites, services et catégories" id="n500">
+    <mxGraphModel dx="2518" dy="611" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1250" pageHeight="790" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="n468" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontStyle=1;fontSize=14;" value="Séquence 12/12 : gérer sites, services et catégories" vertex="1">
+          <mxGeometry height="30" width="1100" x="40" y="8" as="geometry" />
+        </mxCell>
+        <mxCell id="n469" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Administrateur" vertex="1">
+          <mxGeometry height="710" width="180" x="40" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n470" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Application (navigateur, PWA)" vertex="1">
+          <mxGeometry height="710" width="180" x="270" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n471" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" value="Serveur API" vertex="1">
+          <mxGeometry height="710" width="180" x="500" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n472" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=44;fontStyle=1;fontSize=11;fillColor=#f5f5f5;strokeColor=#666666;" value="Base PostgreSQL" vertex="1">
+          <mxGeometry height="710" width="180" x="730" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n473" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="1: ouvrir « Référentiels »">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="130" as="sourcePoint" />
+            <mxPoint x="360" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n474" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="2: ajouter ou modifier un site, un service ou une catégorie">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="170" as="sourcePoint" />
+            <mxPoint x="360" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n475" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="3: PUT /referentiels/{type}/{id}">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="210" as="sourcePoint" />
+            <mxPoint x="590" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n476" edge="1" parent="1" style="html=1;verticalAlign=middle;align=left;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="4: contrôle : libellé unique, champs obligatoires">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="660" y="250" />
+              <mxPoint x="660" y="276" />
+            </Array>
+            <mxPoint x="590" y="250" as="sourcePoint" />
+            <mxPoint x="590" y="276" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n477" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontStyle=2;" value="[libellé valide]" vertex="1">
+          <mxGeometry height="20" width="600" x="20" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="n478" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="5: UPDATE ou INSERT du référentiel">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="336" as="sourcePoint" />
+            <mxPoint x="820" y="336" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n479" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;curved=0;rounded=0;fontSize=11;" value="6: INSERT événement « Modification de référentiel »">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="376" as="sourcePoint" />
+            <mxPoint x="820" y="376" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n480" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="7: OK">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="820" y="416" as="sourcePoint" />
+            <mxPoint x="590" y="416" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n481" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="8: 200 OK">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="456" as="sourcePoint" />
+            <mxPoint x="360" y="456" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n482" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="9: affiche la liste mise à jour">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="496" as="sourcePoint" />
+            <mxPoint x="130" y="496" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n483" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontStyle=2;" value="[élément déjà utilisé par des incidents]" vertex="1">
+          <mxGeometry height="20" width="600" x="20" y="532" as="geometry" />
+        </mxCell>
+        <mxCell id="n484" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="10: 409 Conflict : désactivation proposée à la place">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="568" as="sourcePoint" />
+            <mxPoint x="360" y="568" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n485" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;endSize=8;dashed=1;curved=0;rounded=0;fontSize=11;" value="11: affiche « Élément utilisé : désactiver plutôt que supprimer »">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="608" as="sourcePoint" />
+            <mxPoint x="130" y="608" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n486" parent="1" style="shape=umlFrame;whiteSpace=wrap;html=1;width=60;height=22;boundedLbl=1;verticalAlign=top;align=left;spacingLeft=4;fontSize=11;fontStyle=1;fillColor=none;strokeColor=#444444;" value="alt" vertex="1">
+          <mxGeometry height="362" width="990" x="-20" y="282" as="geometry" />
+        </mxCell>
+        <mxCell id="n488" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeColor=#888888;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-20" y="522" as="sourcePoint" />
+            <mxPoint x="970" y="522" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
