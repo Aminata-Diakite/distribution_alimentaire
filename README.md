@@ -33,7 +33,7 @@ Le projet est une **application web installable (PWA)** qui permet de :
 ```
 ## Liens utiles
 
-[Voir les maquettes interactives](https://htmlpreview.github.io/?https://github.com/Aminata-Diakite/distribution_alimentaire/blob/main/modelisateur/maquettes_CIVADIS.html)
+[Voir la maquette interactive CIVADIS (Figma)](https://www.figma.com/proto/2Su4AiXC5KX3OW5JtkLZsw/CIVADIS---Maquette?node-id=8-2&starting-point-node-id=8%3A2)
 
 
 
